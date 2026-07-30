@@ -1,0 +1,38 @@
+[
+  {
+    "id": "credit-scoring-v1",
+    "name": "Retail Credit Scoring Model",
+    "description": "Machine learning model that scores retail loan applicants and produces an approve or decline recommendation, used by loan officers at a mid sized NBFC.",
+    "built_by": "third_party_vendor",
+    "decision_type": "credit_decisioning",
+    "autonomy_level": "recommends_to_human",
+    "customer_impact": "high"
+  },
+  {
+    "id": "fraud-detection-v2",
+    "name": "Real Time Transaction Fraud Flagging",
+    "description": "In house model that monitors card transactions in real time and automatically blocks transactions above a risk threshold before any human review.",
+    "built_by": "in_house",
+    "decision_type": "fraud_detection",
+    "autonomy_level": "fully_automated",
+    "customer_impact": "high"
+  },
+  {
+    "id": "chatbot-support-v1",
+    "name": "Customer Service Chatbot",
+    "description": "Vendor supplied conversational AI that answers routine customer queries about account balances and branch locations, escalating anything complex to a human agent.",
+    "built_by": "third_party_vendor",
+    "decision_type": "customer_service",
+    "autonomy_level": "fully_automated_low_stakes",
+    "customer_impact": "low"
+  },
+  {
+    "id": "internal-reporting-v1",
+    "name": "Internal Risk Reporting Summarizer",
+    "description": "In house tool that summarizes weekly risk committee data into a plain language report for internal circulation only, no customer facing output.",
+    "built_by": "in_house",
+    "decision_type": "internal_reporting",
+    "autonomy_level": "human_reviewed",
+    "customer_impact": "none"
+  }
+]
