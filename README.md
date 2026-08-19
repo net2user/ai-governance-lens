@@ -68,3 +68,14 @@ before they take effect.
 This tool is grounded in RBI's draft guidance as of June 2026. Final
 guidance may differ from the draft language this tool currently reflects.
 Check RBI's official notifications for the current regulatory position.
+
+
+## Chrome Extension (live)
+
+Ask quick AI governance questions, grounded in RBI's FREE-AI framework and the June 2026 Model Risk Management draft. Answers cite actual source documents and correctly flag draft vs settled guidance, not generic AI knowledge. Submitted to Chrome Web Store for review.
+
+Backend: ai-adoption-rag-core (shared RAG service, retrieval + reasoning combined into one /ask call).
+
+## Roadmap
+
+RBI Lens first (current focus, get excellent before expanding). Future: SEBI Lens, IRDAI Lens, DPDP Lens, Enterprise Policy Lens, each a new corpus folder, same architecture.
