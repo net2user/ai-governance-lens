@@ -23,7 +23,12 @@ askBtn.addEventListener("click", async () => {
     if (!response.ok) throw new Error("Server returned " + response.status);
     const data = await response.json();
 
-    answerP.textContent = data.answer;
+    const escaped = data.answer
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\*\*(.+?)\*\*/g, "<strong>\</strong>");
+    answerP.innerHTML = escaped;
     sourcesDiv.innerHTML = "";
     data.sources.forEach((s) => {
       const chip = document.createElement("span");
