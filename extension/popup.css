@@ -11,7 +11,7 @@ button:disabled { background: #dadce0; cursor: default; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .hidden { display: none; }
 .answer-card { background: #F1F5FB; border-left: 3px solid #4285F4; border-radius: 6px; padding: 10px 12px; margin-top: 12px; }
-#answer { font-size: 13px; line-height: 1.5; margin: 0; }
+#answer { font-size: 13px; line-height: 1.6; margin: 0; white-space: pre-wrap; }
 #sources { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
 .source-chip { font-size: 10px; background: #F1F3F4; color: #5f6368; padding: 4px 8px; border-radius: 12px; }
 .source-chip.draft { background: #FEF7E0; color: #B06000; }
