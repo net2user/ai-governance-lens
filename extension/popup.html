@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" width="24" height="24">
+    <h1>AI Governance Lens</h1>
+  </div>
+  <p class="subtitle">Quick RBI AI governance checks</p>
+
+  <textarea id="query" placeholder="e.g. what is the kill switch requirement"></textarea>
+  <button id="ask-btn">Ask</button>
+
+  <div id="status"></div>
+
+  <div id="result" class="hidden">
+    <div class="answer-card">
+      <p id="answer"></p>
+    </div>
+    <div id="sources"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
