@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AI Governance Lens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Quick AI governance checks against RBI's FREE-AI framework and Model Risk Management guidance.",
   "action": {
     "default_popup": "popup.html",
