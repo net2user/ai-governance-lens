@@ -35,7 +35,10 @@ askBtn.addEventListener("click", async () => {
 
     renderAnswer(data.answer);
     sourcesDiv.innerHTML = "";
+    const seenTitles = new Set();
     data.sources.forEach((s) => {
+      if (seenTitles.has(s.title)) return;
+      seenTitles.add(s.title);
       const chip = document.createElement("span");
       chip.className = "source-chip" + (s.status.includes("draft") ? " draft" : "");
       chip.textContent = s.title.length > 40 ? s.title.slice(0, 40) + "..." : s.title;
