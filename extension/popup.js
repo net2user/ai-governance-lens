@@ -6,6 +6,16 @@ const resultDiv = document.getElementById("result");
 const answerP = document.getElementById("answer");
 const sourcesDiv = document.getElementById("sources");
 
+function renderAnswer(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  let escaped = div.innerHTML;
+  escaped = escaped.split("**").map(function(part, i) {
+    return i % 2 === 1 ? "<strong>" + part + "</strong>" : part;
+  }).join("");
+  answerP.innerHTML = escaped;
+}
+
 askBtn.addEventListener("click", async () => {
   const query = queryInput.value.trim();
   if (!query) { statusDiv.textContent = "Enter a question first."; return; }
@@ -18,17 +28,12 @@ askBtn.addEventListener("click", async () => {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query, n_results: 3 }),
+      body: JSON.stringify({ query, n_results: 8 }),
     });
     if (!response.ok) throw new Error("Server returned " + response.status);
     const data = await response.json();
 
-    const escaped = data.answer
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/\*\*(.+?)\*\*/g, "<strong>\</strong>");
-    answerP.innerHTML = escaped;
+    renderAnswer(data.answer);
     sourcesDiv.innerHTML = "";
     data.sources.forEach((s) => {
       const chip = document.createElement("span");
@@ -40,7 +45,7 @@ askBtn.addEventListener("click", async () => {
     resultDiv.classList.remove("hidden");
     statusDiv.textContent = "";
   } catch (err) {
-    statusDiv.innerHTML = '<div class="error-box">Couldn\'t reach the service. Please try again in a moment.</div>';
+    statusDiv.innerHTML = '<div class="error-box">Could not reach the service. Please try again in a moment.</div>';
   } finally {
     askBtn.disabled = false;
   }
