@@ -16,8 +16,7 @@ function renderAnswer(text) {
   answerP.innerHTML = escaped;
 }
 
-askBtn.addEventListener("click", async () => {
-  const query = queryInput.value.trim();
+async function runAsk(query) {
   if (!query) { statusDiv.textContent = "Enter a question first."; return; }
 
   askBtn.disabled = true;
@@ -51,5 +50,15 @@ askBtn.addEventListener("click", async () => {
     statusDiv.innerHTML = '<div class="error-box">Could not reach the service. Please try again in a moment.</div>';
   } finally {
     askBtn.disabled = false;
+  }
+}
+
+askBtn.addEventListener("click", () => runAsk(queryInput.value.trim()));
+
+chrome.storage.local.get(["pendingQuery"], (result) => {
+  if (result.pendingQuery) {
+    queryInput.value = result.pendingQuery;
+    chrome.storage.local.remove("pendingQuery");
+    runAsk(result.pendingQuery);
   }
 });
